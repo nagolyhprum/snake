@@ -1,4 +1,3 @@
-
 class Body {
   constructor (options) {
     this.data = Object.assign({}, options)
@@ -13,5 +12,13 @@ export default class Snake {
         y: Math.floor(options.rows / 2)
       })]
     })
+  }
+
+  grow () {
+    const tail = this.data.body[this.data.body.length - 1].data
+    this.data.body.push(new Body({
+      x: tail.x,
+      y: tail.y
+    }))
   }
 }
