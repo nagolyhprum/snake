@@ -1,17 +1,20 @@
 class Body {
   constructor (options) {
-    this.data = Object.assign({}, options)
+    this.data = Object.assign({
+      skip : true
+    }, options)
   }
 }
 
 export default class Snake {
   constructor (options) {
-    this.data = Object.assign({}, options, {
+    this.data = Object.assign({
       body: [new Body({
         x: Math.floor(options.columns / 2),
-        y: Math.floor(options.rows / 2)
+        y: Math.floor(options.rows / 2),
+        skip : false
       })]
-    })
+    }, options)
   }
 
   grow () {
@@ -24,7 +27,11 @@ export default class Snake {
 
   move () {
     this.data.body.forEach(part => {
-      part.data.y--
+      if(!part.data.skip) {
+        part.data.y--
+      } else {
+        part.data.skip = false
+      }
     })
   }
 }
