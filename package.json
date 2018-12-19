@@ -24,7 +24,7 @@
     "babel-preset-env": "^1.7.0"
   },
   "scripts": {
-    "dev": "parcel src/index.html -p 8080 --no-source-maps",
+    "dev": "parcel src/index.html -p 8080 --no-source-maps --open",
     "ci": "standard && jest",
     "test": "jest",
     "lint": "standard --fix"
