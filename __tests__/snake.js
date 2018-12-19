@@ -147,4 +147,25 @@ describe('snake', () => {
       skip: false
     })
   })
+  it('dies out of bounds', () => {
+    const snake = new Snake({
+      columns: 12,
+      rows: 10
+    })
+    snake.data.body[0].data.x = 5
+    snake.data.body[0].data.y = 5
+    expect(snake.isDead()).toBeFalsy()
+    snake.data.body[0].data.x = -1
+    snake.data.body[0].data.y = 5
+    expect(snake.isDead()).toBeTruthy()
+    snake.data.body[0].data.x = 5
+    snake.data.body[0].data.y = -1
+    expect(snake.isDead()).toBeTruthy()
+    snake.data.body[0].data.x = 13
+    snake.data.body[0].data.y = 5
+    expect(snake.isDead()).toBeTruthy()
+    snake.data.body[0].data.x = 5
+    snake.data.body[0].data.y = 13
+    expect(snake.isDead()).toBeTruthy()
+  })
 })
