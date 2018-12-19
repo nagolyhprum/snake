@@ -21,4 +21,10 @@ export default class Snake {
       y: tail.y
     }))
   }
+
+  move () {
+    this.data.body.forEach(part => {
+      part.data.y--
+    })
+  }
 }
