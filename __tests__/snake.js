@@ -6,7 +6,7 @@ describe('snake', () => {
       columns: 12,
       rows: 10
     })
-    expect(snake.data.x).toBe(5)
+    expect(snake.data.x).toBe(6)
     expect(snake.data.y).toBe(5)
   })
 })

@@ -25,6 +25,7 @@
   },
   "scripts": {
     "dev": "parcel src/index.html -p 8080 --no-source-maps",
+    "ci": "standard && jest",
     "test": "jest",
     "lint": "standard --fix"
   },
