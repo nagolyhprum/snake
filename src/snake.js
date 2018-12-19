@@ -25,6 +25,12 @@ export default class Snake {
     }))
   }
 
+  isDead() {
+    const head = this.data.body[0].data
+    const { rows, columns } = this.data
+    return head.x < 0 || head.y < 0 || head.x >= columns || head.y >= rows
+  }
+
   move (direction) {
     for (let index = this.data.body.length - 1; index >= 0; index--) {
       const part = this.data.body[index]
