@@ -52,33 +52,18 @@ describe('snake', () => {
       rows: 10
     })
     snake.grow()
-    expect(snake.data.body[0].data).toEqual({
-      x: 6,
-      y: 5,
-      skip: false
-    })
     expect(snake.data.body[1].data).toEqual({
       x: 6,
       y: 5,
       skip: true
     })
     snake.move(UP)
-    expect(snake.data.body[0].data).toEqual({
-      x: 6,
-      y: 4,
-      skip: false
-    })
     expect(snake.data.body[1].data).toEqual({
       x: 6,
       y: 5,
       skip: false
     })
     snake.move(UP)
-    expect(snake.data.body[0].data).toEqual({
-      x: 6,
-      y: 3,
-      skip: false
-    })
     expect(snake.data.body[1].data).toEqual({
       x: 6,
       y: 4,
@@ -132,31 +117,31 @@ describe('snake', () => {
       skip: true
     })
     snake.move(UP)
-    expect(snake.data.body[0].data).toEqual({
+    expect(snake.data.body[1].data).toEqual({
       x: 6,
       y: 5,
       skip: false
     })
     snake.move(RIGHT)
-    expect(snake.data.body[0].data).toEqual({
+    expect(snake.data.body[1].data).toEqual({
       x: 6,
       y: 4,
       skip: false
     })
     snake.move(DOWN)
-    expect(snake.data.body[0].data).toEqual({
+    expect(snake.data.body[1].data).toEqual({
       x: 7,
       y: 4,
       skip: false
     })
     snake.move(LEFT)
-    expect(snake.data.body[0].data).toEqual({
+    expect(snake.data.body[1].data).toEqual({
       x: 7,
       y: 5,
       skip: false
     })
     snake.move(UP)
-    expect(snake.data.body[0].data).toEqual({
+    expect(snake.data.body[1].data).toEqual({
       x: 6,
       y: 5,
       skip: false

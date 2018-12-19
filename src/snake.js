@@ -26,26 +26,33 @@ export default class Snake {
   }
 
   move (direction) {
-    this.data.body.forEach(part => {
+    for (let index = this.data.body.length - 1; index >= 0; index--) {
+      const part = this.data.body[index]
       if (!part.data.skip) {
-        switch (direction) {
-          case UP:
-            part.data.y--
-            break
-          case RIGHT:
-            part.data.x++
-            break
-          case DOWN:
-            part.data.y++
-            break
-          case LEFT:
-            part.data.x--
-            break
+        if (index) {
+          const dest = this.data.body[index - 1].data
+          part.data.x = dest.x
+          part.data.y = dest.y
+        } else {
+          switch (direction) {
+            case UP:
+              part.data.y--
+              break
+            case RIGHT:
+              part.data.x++
+              break
+            case DOWN:
+              part.data.y++
+              break
+            case LEFT:
+              part.data.x--
+              break
+          }
         }
       } else {
         part.data.skip = false
       }
-    })
+    }
   }
 }
 
