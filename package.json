@@ -1,0 +1,41 @@
+{
+  "name": "snake",
+  "version": "1.0.0",
+  "description": "Snake game for demo",
+  "main": "index.js",
+  "dependencies": {
+    "jest": "^23.6.0",
+    "parcel-bundler": "^1.11.0",
+    "standard": "^12.0.1"
+  },
+  "standard": {
+    "ignore": [
+      "dist/*"
+    ],
+    "globals": [
+      "describe",
+      "it",
+      "expect"
+    ]
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-preset-env": "^1.7.0"
+  },
+  "scripts": {
+    "dev": "parcel src/index.html -p 8080 --no-source-maps",
+    "test": "jest",
+    "lint": "standard --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nagolyhprum/snake.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nagolyhprum/snake/issues"
+  },
+  "homepage": "https://github.com/nagolyhprum/snake#readme"
+}
