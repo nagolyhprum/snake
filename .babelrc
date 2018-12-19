@@ -3,7 +3,8 @@
   "plugins": [
     ["module-resolver", {
       "alias": {
-        "snake": "./src/snake"
+        "snake": "./src/snake",
+        "food": "./src/food"
       }
     }]
   ]
