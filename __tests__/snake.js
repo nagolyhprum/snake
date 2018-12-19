@@ -85,7 +85,7 @@ describe('snake', () => {
       skip: false
     })
   })
-  expect('head follows directions', () => {
+  it('head follows directions', () => {
     const snake = new Snake({
       columns: 12,
       rows: 10

@@ -25,13 +25,31 @@ export default class Snake {
     }))
   }
 
-  move () {
+  move (direction) {
     this.data.body.forEach(part => {
       if (!part.data.skip) {
-        part.data.y--
+        switch (direction) {
+          case UP:
+            part.data.y--
+            break
+          case RIGHT:
+            part.data.x++
+            break
+          case DOWN:
+            part.data.y++
+            break
+          case LEFT:
+            part.data.x--
+            break
+        }
       } else {
         part.data.skip = false
       }
     })
   }
 }
+
+export const UP = 1
+export const RIGHT = 2
+export const DOWN = 4
+export const LEFT = 8
