@@ -14,11 +14,12 @@ describe('game', () => {
   it('starts', () => {
     const random = () => 0
     const game = new Game(random)
-    expect(game.data.food).toEqual(new Food(random))
-    expect(game.data.snake).toEqual(new Snake({
+    const snake = new Snake({
       columns: COLUMNS,
       rows: ROWS
-    }))
+    })
+    expect(game.data.food).toEqual(Food.generate(snake, random))
+    expect(game.data.snake).toEqual(snake)
   })
   it('updates', () => {
     const random = () => 0
@@ -77,5 +78,18 @@ describe('game', () => {
       game.setDirection(DOWN)
       game.setDirection(UP)
       expect(game.data.direction).toBe(DOWN)
+  })
+  it('snake eats food', () => {
+
+      const random = () => 0
+      const game = new Game(random)
+      const x = Math.floor(COLUMNS / 2)
+      const y = Math.floor(COLUMNS / 2) - 1
+      game.data.food.data.x = x
+      game.data.food.data.y = y
+      game.update()
+      expect(game.data.food.data).not.toEqual({
+        x, y
+      })
   })
 })
