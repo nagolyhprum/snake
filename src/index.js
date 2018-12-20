@@ -18,10 +18,11 @@ const draw = () => {
   context.fillRect(0, 0, canvas.width, canvas.height)
   context.fillStyle = 'white'
   game.data.snake.data.body.forEach(part => {
-    const x = part.data.x * CELL_WIDTH
-    const y = part.data.y * CELL_HEIGHT
-    context.fillRect(x, y, CELL_WIDTH, CELL_HEIGHT)
+    context.fillRect(part.data.x * CELL_WIDTH, part.data.y * CELL_HEIGHT, CELL_WIDTH, CELL_HEIGHT)
   })
+  const food = game.data.food.data
+  context.fillStyle = "red"
+  context.fillRect(food.x * CELL_WIDTH, food.y * CELL_HEIGHT, CELL_WIDTH, CELL_HEIGHT)
 }
 
 const keyMap = {
@@ -32,16 +33,15 @@ const keyMap = {
 }
 
 document.body.onkeydown = e => {
-  const desire = keyMap[e.which]
-  const current = game.direction
-  game.data.direction = desire || current
+  game.setDirection(keyMap[e.which])
 }
 
 const update = () => {
   game.update()
 }
 
+draw()
 setInterval(() => {
   update()
   draw()
-}, 1000)
+}, 300)

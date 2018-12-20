@@ -80,7 +80,6 @@ describe('game', () => {
       expect(game.data.direction).toBe(DOWN)
   })
   it('snake eats food', () => {
-
       const random = () => 0
       const game = new Game(random)
       const x = Math.floor(COLUMNS / 2)

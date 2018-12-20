@@ -19,12 +19,18 @@ export default class Game {
     this.moveFood()
   }
   moveFood () {
-    this.data.food = new Food(this.snake, this.random)
+    this.data.food = Food.generate(this.data.snake, this.random)
   }
   update () {
     this.data.snake.move(this.data.direction)
     if(this.data.snake.isDead()) {
       this.reset()
+    }
+    const snake = this.data.snake.data.body[0].data
+    const food = this.data.food.data
+    if(snake.x === food.x && snake.y === food.y) {
+      this.data.snake.grow()
+      this.moveFood()
     }
   }
   setDirection(value) {
