@@ -187,4 +187,13 @@ describe('snake', () => {
     snake.move(LEFT)
     expect(snake.isDead()).toBeTruthy()
   })
+  it('can eat itself immediately', () => {
+    const snake = new Snake({
+      columns: 12,
+      rows: 10
+    })
+    expect(snake.isDead()).toBeFalsy()
+    snake.grow()
+    expect(snake.isDead()).toBeFalsy()
+  })
 })
