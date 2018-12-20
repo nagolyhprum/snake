@@ -19,9 +19,9 @@ describe('game', () => {
     const random = () => 0
     const game = new Game(random)
     game.update()
-    expect(game.data.snake.data).toEqual({
+    expect(game.data.snake.data.body[0].data).toEqual({
       x: Math.floor(COLUMNS / 2),
-      y: Math.floor(COLUMNS / 2),
+      y: Math.floor(ROWS / 2) - 1,
       skip: false
     })
   })

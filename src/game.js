@@ -21,4 +21,7 @@ export default class Game {
   moveFood () {
     this.data.food = new Food(this.snake, this.random)
   }
+  update () {
+    this.data.snake.move(this.data.direction)
+  }
 }
