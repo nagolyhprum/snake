@@ -12,4 +12,15 @@ describe('food', () => {
       y: 0
     })
   })
+  it('generates where the snake isnt', () => {
+    const snake = new Snake({
+      columns: 10,
+      rows: 12
+    })
+    let index = 5
+    expect(Food.generate(snake, () => index++).data).toEqual({
+      x: 7,
+      y: 8
+    })
+  })
 })
