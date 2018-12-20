@@ -21,12 +21,12 @@ export default class Game {
   moveFood () {
     this.data.food = Food.generate(this.data.snake, this.random)
   }
-  update () { //moves the snake, can feed or kill the snake
+  update () { // moves the snake, can feed or kill the snake
     this.data.snake.move(this.data.direction)
     if (this.data.snake.isDead()) {
       this.reset()
     }
-    //detect if snake is eating
+    // detect if snake is eating
     const snake = this.data.snake.data.body[0].data
     const food = this.data.food.data
     if (snake.x === food.x && snake.y === food.y) {

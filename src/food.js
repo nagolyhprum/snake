@@ -1,6 +1,6 @@
 export default class Food {
   static generate (snake, random) {
-    //the following code determines where i can place food, the snake can block it
+    // the following code determines where i can place food, the snake can block it
     const tiles = []
     for (let i = 0; i < snake.data.columns; i++) {
       for (let j = 0; j < snake.data.rows; j++) {
@@ -15,7 +15,7 @@ export default class Food {
         }
       }
     }
-    //then i randomly choose one of those foods
+    // then i randomly choose one of those foods
     return {
       data: tiles[random(tiles.length)]
     }
