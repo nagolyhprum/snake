@@ -25,4 +25,15 @@ describe('game', () => {
       skip: false
     })
   })
+  it('kills the snake', () => {
+    const random = () => 0
+    const game = new Game(random)
+    game.data.snake.data.body[0].data.y = 0
+    game.update()
+    expect(game.data.snake.data.body[0].data).toEqual({
+      x: Math.floor(COLUMNS / 2),
+      y: Math.floor(ROWS / 2),
+      skip: false
+    })
+  })
 })

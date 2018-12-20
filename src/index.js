@@ -19,7 +19,7 @@ const draw = () => {
   context.fillStyle = 'white'
   game.data.snake.data.body.forEach(part => {
     const x = part.data.x * CELL_WIDTH
-    const y = part.data.x * CELL_HEIGHT
+    const y = part.data.y * CELL_HEIGHT
     context.fillRect(x, y, CELL_WIDTH, CELL_HEIGHT)
   })
 }
@@ -28,5 +28,7 @@ const update = () => {
   game.update()
 }
 
-update()
-draw()
+setInterval(() => {
+  update()
+  draw()
+}, 1000)
