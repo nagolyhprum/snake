@@ -27,7 +27,7 @@ export default class Snake {
 
   isDead () {
     const head = this.data.body[0].data
-    const isDead = this.data.body.reduce((isDead, part) => {
+    const isDead = this.data.body.length > 4 && this.data.body.reduce((isDead, part) => {
       return isDead || (part.data !== head && part.data.x === head.x && part.data.y === head.y)
     }, false)
     const { rows, columns } = this.data
