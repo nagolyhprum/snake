@@ -194,6 +194,6 @@ describe('snake', () => {
     })
     expect(snake.isDead()).toBeFalsy()
     snake.grow()
-    expect(snake.isDead()).toBeFalsy()
+    expect(snake.isDead()).toBeTruthy()
   })
 })
