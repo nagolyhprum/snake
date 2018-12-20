@@ -23,5 +23,8 @@ export default class Game {
   }
   update () {
     this.data.snake.move(this.data.direction)
+    if(this.data.snake.isDead()) {
+      this.reset()
+    }
   }
 }
