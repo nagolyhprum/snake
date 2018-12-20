@@ -3,7 +3,12 @@ import Game, {
   ROWS
 } from 'game'
 import Food from 'food'
-import Snake from 'snake'
+import Snake, {
+  UP,
+  RIGHT,
+  DOWN,
+  LEFT
+} from 'snake'
 
 describe('game', () => {
   it('starts', () => {
@@ -35,5 +40,56 @@ describe('game', () => {
       y: Math.floor(ROWS / 2),
       skip: false
     })
+  })
+  it('can set direction', () => {
+    const random = () => 0
+    const game = new Game(random)
+    game.setDirection(UP)
+    expect(game.data.direction).toBe(UP)
+    game.setDirection(RIGHT)
+    expect(game.data.direction).toBe(RIGHT)
+    game.setDirection(DOWN)
+    expect(game.data.direction).toBe(DOWN)
+    game.setDirection(LEFT)
+    expect(game.data.direction).toBe(LEFT)
+
+    game.data.snake.grow()
+    game.setDirection(RIGHT)
+    expect(game.data.direction).toBe(LEFT)
+
+    game.setDirection(UP)
+    game.setDirection(DOWN)
+    expect(game.data.direction).toBe(UP)
+
+    game.setDirection(RIGHT)
+    game.setDirection(LEFT)
+    expect(game.data.direction).toBe(RIGHT)
+
+    game.setDirection(RIGHT)
+    game.setDirection(LEFT)
+    expect(game.data.direction).toBe(RIGHT)
+  })
+  it('fights certain directions', () => {
+
+      const random = () => 0
+      const game = new Game(random)
+
+      game.data.snake.grow()
+
+      game.setDirection(LEFT)
+      game.setDirection(RIGHT)
+      expect(game.data.direction).toBe(LEFT)
+
+      game.setDirection(UP)
+      game.setDirection(DOWN)
+      expect(game.data.direction).toBe(UP)
+
+      game.setDirection(RIGHT)
+      game.setDirection(LEFT)
+      expect(game.data.direction).toBe(RIGHT)
+
+      game.setDirection(DOWN)
+      game.setDirection(UP)
+      expect(game.data.direction).toBe(DOWN)
   })
 })

@@ -24,6 +24,19 @@ const draw = () => {
   })
 }
 
+const keyMap = {
+  38 : UP,
+  39 : RIGHT,
+  40 : DOWN,
+  37 : LEFT
+}
+
+document.body.onkeydown = e => {
+  const desire = keyMap[e.which]
+  const current = game.direction
+  game.data.direction = desire || current
+}
+
 const update = () => {
   game.update()
 }
