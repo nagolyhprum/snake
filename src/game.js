@@ -27,4 +27,9 @@ export default class Game {
       this.reset()
     }
   }
+  setDirection(value) {
+    if(value && ((value & this.data.direction) === 0)) { //prevent clashes using binary operator
+      this.data.direction = value
+    }
+  }
 }

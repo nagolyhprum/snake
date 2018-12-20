@@ -52,22 +52,8 @@ describe('game', () => {
     expect(game.data.direction).toBe(DOWN)
     game.setDirection(LEFT)
     expect(game.data.direction).toBe(LEFT)
-
-    game.data.snake.grow()
-    game.setDirection(RIGHT)
+    game.setDirection()
     expect(game.data.direction).toBe(LEFT)
-
-    game.setDirection(UP)
-    game.setDirection(DOWN)
-    expect(game.data.direction).toBe(UP)
-
-    game.setDirection(RIGHT)
-    game.setDirection(LEFT)
-    expect(game.data.direction).toBe(RIGHT)
-
-    game.setDirection(RIGHT)
-    game.setDirection(LEFT)
-    expect(game.data.direction).toBe(RIGHT)
   })
   it('fights certain directions', () => {
 

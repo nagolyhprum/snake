@@ -66,6 +66,7 @@ export default class Snake {
 }
 
 export const UP = 1
-export const RIGHT = 2
-export const DOWN = 4
-export const LEFT = 8
+export const DOWN = 3
+
+export const RIGHT = 4
+export const LEFT = 12
