@@ -14,12 +14,15 @@ canvas.height = CANVAS_HEIGHT
 const game = new Game(input => Math.floor(Math.random() * input))
 
 const draw = () => {
+  //draw background
   context.fillStyle = 'black'
   context.fillRect(0, 0, canvas.width, canvas.height)
+  //draw snake parts
   context.fillStyle = 'white'
   game.data.snake.data.body.forEach((part, index) => {
     context.fillRect(part.data.x * CELL_WIDTH, part.data.y * CELL_HEIGHT, CELL_WIDTH, CELL_HEIGHT)
   })
+  //draw food
   const food = game.data.food.data
   context.fillStyle = 'red'
   context.fillRect(food.x * CELL_WIDTH, food.y * CELL_HEIGHT, CELL_WIDTH, CELL_HEIGHT)
