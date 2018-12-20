@@ -17,19 +17,19 @@ const draw = () => {
   context.fillStyle = 'black'
   context.fillRect(0, 0, canvas.width, canvas.height)
   context.fillStyle = 'white'
-  game.data.snake.data.body.forEach(part => {
+  game.data.snake.data.body.forEach((part, index) => {
     context.fillRect(part.data.x * CELL_WIDTH, part.data.y * CELL_HEIGHT, CELL_WIDTH, CELL_HEIGHT)
   })
   const food = game.data.food.data
-  context.fillStyle = "red"
+  context.fillStyle = 'red'
   context.fillRect(food.x * CELL_WIDTH, food.y * CELL_HEIGHT, CELL_WIDTH, CELL_HEIGHT)
 }
 
 const keyMap = {
-  38 : UP,
-  39 : RIGHT,
-  40 : DOWN,
-  37 : LEFT
+  38: UP,
+  39: RIGHT,
+  40: DOWN,
+  37: LEFT
 }
 
 document.body.onkeydown = e => {
