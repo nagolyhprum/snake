@@ -168,4 +168,23 @@ describe('snake', () => {
     snake.data.body[0].data.y = 13
     expect(snake.isDead()).toBeTruthy()
   })
+  it('can eat itself', () => {
+    const snake = new Snake({
+      columns: 12,
+      rows: 10
+    })
+    expect(snake.isDead()).toBeFalsy()
+    snake.grow()
+    snake.move(UP)
+    expect(snake.isDead()).toBeFalsy()
+    snake.grow()
+    snake.move(RIGHT)
+    expect(snake.isDead()).toBeFalsy()
+    snake.grow()
+    snake.move(DOWN)
+    expect(snake.isDead()).toBeFalsy()
+    snake.grow()
+    snake.move(LEFT)
+    expect(snake.isDead()).toBeTruthy()
+  })
 })
