@@ -4,7 +4,8 @@
     ["module-resolver", {
       "alias": {
         "snake": "./src/snake",
-        "food": "./src/food"
+        "food": "./src/food",
+        "game": "./src/game"
       }
     }]
   ]

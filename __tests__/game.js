@@ -15,4 +15,14 @@ describe('game', () => {
       rows: ROWS
     }))
   })
+  it('updates', () => {
+    const random = () => 0
+    const game = new Game(random)
+    game.update()
+    expect(game.data.snake.data).toEqual({
+      x: Math.floor(COLUMNS / 2),
+      y: Math.floor(COLUMNS / 2),
+      skip: false
+    })
+  })
 })
