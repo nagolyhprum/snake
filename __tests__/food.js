@@ -17,10 +17,15 @@ describe('food', () => {
       columns: 10,
       rows: 12
     })
-    let index = 5
-    expect(Food.generate(snake, () => index++).data).toEqual({
-      x: 7,
-      y: 8
-    })
+    for (let i = 0; i < 119; i++) {
+      const food = Food.generate(snake, () => i).data
+      expect(food).toBeDefined()
+      expect(food).not.toEqual({
+        x: 5,
+        y: 6
+      })
+    }
+    const food = Food.generate(snake, () => 119).data
+    expect(food).toBeUndefined()
   })
 })
